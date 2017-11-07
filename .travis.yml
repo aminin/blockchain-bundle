@@ -1,0 +1,36 @@
+language: php
+
+matrix:
+  include:
+    # 7.0
+    - php: 7.0
+      env: SYMFONY_VERSION=2.8.*
+    - php: 7.0
+      env: SYMFONY_VERSION=3.2.*
+    - php: 7.0
+      env: SYMFONY_VERSION=3.3.*
+    # 7.1
+    - php: 7.1
+      env: SYMFONY_VERSION=2.8.*
+    - php: 7.1
+      env: SYMFONY_VERSION=3.2.*
+    - php: 7.1
+      env: SYMFONY_VERSION=3.3.*
+    # hhvm
+    - php: hhvm
+      dist: trusty
+      env: SYMFONY_VERSION=2.8.*
+    - php: hhvm
+      dist: trusty
+      env: SYMFONY_VERSION=3.2.*
+    - php: hhvm
+      dist: trusty
+      env: SYMFONY_VERSION=3.3.*
+
+install:
+  - sh -c 'if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev symfony/symfony=$SYMFONY_VERSION; fi;'
+  - composer install
+
+script:
+  - vendor/bin/phpunit
+  - vendor/bin/phpcs -n -p --encoding=utf-8 --standard=PSR2 --extensions=php --ignore=vendor .
