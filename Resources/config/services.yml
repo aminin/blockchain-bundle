@@ -1,9 +1,0 @@
-parameters:
-  ami_blockchain.blockchain.class: 'Blockchain\Blockchain'
-
-services:
-  ami_blockchain.blockchain:
-    class: '%ami_blockchain.blockchain.class%'
-    arguments: ['%ami_blockchain.api_key%']
-    calls:
-      - ['setServiceUrl', ['%ami_blockchain.service_url%']]
