@@ -2,7 +2,7 @@
 
 [![License](https://poser.pugx.org/aminin/blockchain-bundle/license)](https://packagist.org/packages/aminin/blockchain-bundle)
 
-[Blockchain.info](https://blockchain.info/) integration for Symfony 2/3.
+[Blockchain.info](https://blockchain.info/) integration for Symfony 2/3/4.
 This bundle plugs the [Blockchain API client] into Symfony project.
 
 ## Prerequisites
@@ -22,6 +22,8 @@ $ composer require aminin/blockchain-bundle
 ### Step 2: Enable the bundle
 
 Enable the bundle in the kernel:
+
+> _Skip if using SF4 and Flex, the bundle will be automatically added for you._
 
 ```php
 <?php
@@ -47,16 +49,16 @@ ami_blockchain:
     service_url: SERVICE-URL-FOR-API-V-2
 ```
 
-## Configuration reference
-
+If using SF4 create the config file for this bundle inside `config/packages`:
 ```yml
+# config/packages/ami_blockchain.yaml
 ami_blockchain:
     api_key: YOUR-API-KEY
     service_url: SERVICE-URL-FOR-API-V-2
 
-parameters:
-  # You may modify these parameter at your own risk
-  ami_blockchain.blockchain.class: 'Blockchain\Blockchain'
+# If you like to define this values in `.env` file or your server environment variables use:
+    api_key: '%env(BLOCKCHAIN_API_KEY)%'
+    service_url: '%env(BLOCKCHAIN_SERVICE_URL)%'
 ```
 
 ## Usage
