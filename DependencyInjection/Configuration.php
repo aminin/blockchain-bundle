@@ -23,10 +23,10 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('api_key')
-                    ->defaultValue(null)
+                    ->defaultNull()
                 ->end()
                 ->scalarNode('service_url')
-                    ->defaultValue(null)
+                    ->defaultNull()
                 ->end()
             ->end()
         ;

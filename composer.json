@@ -1,6 +1,6 @@
 {
     "name": "aminin/blockchain-bundle",
-    "description": "Blockchain API integration for Symfony 2/3",
+    "description": "Blockchain API integration for Symfony 2/3/4",
     "repositories": [{ "type": "composer", "url": "https://aminin.github.io/satis" }],
     "license": "MIT",
     "authors": [
@@ -12,7 +12,6 @@
     "type": "symfony-bundle",
     "require": {
         "symfony/framework-bundle": "^2.8|^3.0|^4.0",
-        "symfony/yaml": "*",
         "blockchain/blockchain": "^1.4"
     },
     "require-dev": {
